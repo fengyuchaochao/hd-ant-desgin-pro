@@ -1,0 +1,2113 @@
+{
+  "schemes":["http"], 
+  "securityDefinitions": { 
+    "api_key": { 
+      "type": "apiKey", 
+      "name": "Authorization", 
+      "in": "header" 
+    } 
+  }, 
+  "security": [{ 
+    "api_key": [] 
+  }], 
+  "swagger": "2.0",
+  "info": {
+    "title": "control_plane.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "ControlPlaneService"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/control_plane.ControlPlaneService/InitializeAccount": {
+      "post": {
+        "operationId": "ControlPlaneService_InitializeAccount",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeInitializeAccountResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/control_planeInitializeAccountRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      }
+    },
+    "/control_plane.ControlPlaneService/UpdateAccountStatus": {
+      "post": {
+        "operationId": "ControlPlaneService_UpdateAccountStatus",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeUpdateAccountStatusResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/control_planeUpdateAccountStatusRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      }
+    },
+    "/control_plane.ControlPlaneService/UpdateWarehouseStatus": {
+      "post": {
+        "operationId": "ControlPlaneService_UpdateWarehouseStatus",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeUpdateWarehouseStatusResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/control_planeUpdateWarehouseStatusRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      }
+    },
+    "/v2/accounts/{accountId}": {
+      "get": {
+        "operationId": "ControlPlaneService_GetAccount2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeGetAccountResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "organizationId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      },
+      "delete": {
+        "operationId": "ControlPlaneService_DropAccount2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeDropAccountResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "organizationId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      }
+    },
+    "/v2/accounts/{accountId}/users": {
+      "get": {
+        "operationId": "ControlPlaneService_ListUsers2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeListUsersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "organizationId",
+            "description": "ignored",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      },
+      "post": {
+        "operationId": "ControlPlaneService_CreateUser2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeCreateUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "organizationId": {
+                  "type": "string",
+                  "title": "organization_id will be ignored for now"
+                },
+                "userName": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "surname": {
+                  "type": "string"
+                },
+                "givenName": {
+                  "type": "string"
+                },
+                "roles": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "title": "builtin roles:\n- OrganizationAdmin\n- AccountAdmin\n- DatabaseUser\nas there may be customized roles, we use strings instead of enums"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      }
+    },
+    "/v2/accounts/{accountId}/warehouses": {
+      "get": {
+        "operationId": "ControlPlaneService_ListWarehouses2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeListWarehousesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "organizationId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      },
+      "post": {
+        "operationId": "ControlPlaneService_CreateWarehouse2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeCreateWarehouseResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "organizationId": {
+                  "type": "string"
+                },
+                "warehouseName": {
+                  "type": "string"
+                },
+                "warehouseSize": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      }
+    },
+    "/v2/clouds": {
+      "get": {
+        "operationId": "ControlPlaneService_ListClouds",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeListCloudsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      }
+    },
+    "/v2/clouds/{cloudId}/regions": {
+      "get": {
+        "operationId": "ControlPlaneService_ListRegions",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeListRegionsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cloudId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      }
+    },
+    "/v2/organizations": {
+      "post": {
+        "operationId": "ControlPlaneService_CreateOrganization",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeCreateOrganizationResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/control_planeCreateOrganizationRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      }
+    },
+    "/v2/organizations/accounts/users/password/change": {
+      "put": {
+        "operationId": "ControlPlaneService_ChangePassword",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeChangePasswordResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/control_planeChangePasswordRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      }
+    },
+    "/v2/organizations/{organizationId}/accounts": {
+      "get": {
+        "operationId": "ControlPlaneService_ListAccounts",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeListAccountsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      },
+      "post": {
+        "operationId": "ControlPlaneService_CreateAccount",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeCreateAccountResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "accountName": {
+                  "type": "string"
+                },
+                "userName": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "surname": {
+                  "type": "string"
+                },
+                "givenName": {
+                  "type": "string"
+                },
+                "cloudId": {
+                  "type": "string"
+                },
+                "regionId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      }
+    },
+    "/v2/organizations/{organizationId}/accounts/{accountId}": {
+      "get": {
+        "operationId": "ControlPlaneService_GetAccount",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeGetAccountResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "accountId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      },
+      "delete": {
+        "operationId": "ControlPlaneService_DropAccount",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeDropAccountResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "accountId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      }
+    },
+    "/v2/organizations/{organizationId}/accounts/{accountId}/users": {
+      "get": {
+        "operationId": "ControlPlaneService_ListUsers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeListUsersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "organizationId",
+            "description": "ignored",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "accountId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      },
+      "post": {
+        "operationId": "ControlPlaneService_CreateUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeCreateUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "organizationId",
+            "description": "organization_id will be ignored for now",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "accountId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userName": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "surname": {
+                  "type": "string"
+                },
+                "givenName": {
+                  "type": "string"
+                },
+                "roles": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "title": "builtin roles:\n- OrganizationAdmin\n- AccountAdmin\n- DatabaseUser\nas there may be customized roles, we use strings instead of enums"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      }
+    },
+    "/v2/organizations/{organizationId}/accounts/{accountId}/users/{userId}": {
+      "get": {
+        "operationId": "ControlPlaneService_GetUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeGetUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "accountId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      },
+      "delete": {
+        "operationId": "ControlPlaneService_DropUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeDropUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "organizationId",
+            "description": "ignored",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "accountId",
+            "description": "ignored",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      }
+    },
+    "/v2/organizations/{organizationId}/accounts/{accountId}/users/{userId}/roles": {
+      "post": {
+        "operationId": "ControlPlaneService_GrantUserRole",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeGrantUserRoleResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "organizationId",
+            "description": "ignored",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "accountId",
+            "description": "ignored",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "role": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      }
+    },
+    "/v2/organizations/{organizationId}/accounts/{accountId}/users/{userId}/roles/{role}": {
+      "delete": {
+        "operationId": "ControlPlaneService_RevokeUserRole",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeRevokeUserRoleResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "organizationId",
+            "description": "ignored",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "accountId",
+            "description": "ignored",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "role",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      }
+    },
+    "/v2/organizations/{organizationId}/accounts/{accountId}/warehouses": {
+      "get": {
+        "operationId": "ControlPlaneService_ListWarehouses",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeListWarehousesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "accountId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      },
+      "post": {
+        "operationId": "ControlPlaneService_CreateWarehouse",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeCreateWarehouseResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "accountId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "warehouseName": {
+                  "type": "string"
+                },
+                "warehouseSize": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      }
+    },
+    "/v2/organizations/{organizationId}/accounts/{accountId}/warehouses/{warehouseId}": {
+      "get": {
+        "operationId": "ControlPlaneService_GetWarehouse",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeGetWarehouseResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "accountId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "warehouseId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      },
+      "delete": {
+        "operationId": "ControlPlaneService_DropWarehouse",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeDropWarehouseResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "organizationId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "accountId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "warehouseId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      }
+    },
+    "/v2/roles": {
+      "get": {
+        "operationId": "ControlPlaneService_ListRoles",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeListRolesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "ControlPlaneService"
+        ]
+      }
+    },
+    "/v2/specs": {
+      "get": {
+        "operationId": "ControlPlaneService_ListWarehouseSpecs",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeListWarehouseSpecsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "ControlPlaneService"
+        ]
+      }
+    },
+    "/v2/token": {
+      "get": {
+        "operationId": "ControlPlaneService_RefreshToken",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeRefreshTokenResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "newRoles",
+            "description": "if len(new_roles) == 0, it's refreshing, else it's assuming new roles",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      },
+      "post": {
+        "operationId": "ControlPlaneService_Login",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeLoginResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/control_planeLoginRequest"
+            }
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      }
+    },
+    "/v2/users": {
+      "put": {
+        "operationId": "ControlPlaneService_ChangePassword2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeChangePasswordResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "oldPassword",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "newPassword",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      }
+    },
+    "/v2/users/{userId}": {
+      "get": {
+        "operationId": "ControlPlaneService_GetUser2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeGetUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "organizationId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "accountId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      },
+      "delete": {
+        "operationId": "ControlPlaneService_DropUser2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeDropUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "organizationId",
+            "description": "ignored",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "accountId",
+            "description": "ignored",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      }
+    },
+    "/v2/users/{userId}/roles": {
+      "post": {
+        "operationId": "ControlPlaneService_GrantUserRole2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeGrantUserRoleResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "organizationId": {
+                  "type": "string",
+                  "title": "ignored"
+                },
+                "accountId": {
+                  "type": "string",
+                  "title": "ignored"
+                },
+                "role": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      }
+    },
+    "/v2/users/{userId}/roles/{role}": {
+      "delete": {
+        "operationId": "ControlPlaneService_RevokeUserRole2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeRevokeUserRoleResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "role",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "organizationId",
+            "description": "ignored",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "accountId",
+            "description": "ignored",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      }
+    },
+    "/v2/warehouses/{warehouseId}": {
+      "get": {
+        "operationId": "ControlPlaneService_GetWarehouse2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeGetWarehouseResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "warehouseId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "organizationId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "accountId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      },
+      "delete": {
+        "operationId": "ControlPlaneService_DropWarehouse2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/control_planeDropWarehouseResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "warehouseId",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "organizationId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "accountId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ControlPlaneService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "control_planeAccount": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "organizationId": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/control_planeAccountStatus"
+        },
+        "createdAt": {
+          "type": "string"
+        }
+      }
+    },
+    "control_planeAccountStatus": {
+      "type": "string",
+      "enum": [
+        "AccountStatusCreating",
+        "AccountStatusNormal"
+      ],
+      "default": "AccountStatusCreating"
+    },
+    "control_planeChangePasswordRequest": {
+      "type": "object",
+      "properties": {
+        "oldPassword": {
+          "type": "string"
+        },
+        "newPassword": {
+          "type": "string"
+        }
+      }
+    },
+    "control_planeChangePasswordResponse": {
+      "type": "object"
+    },
+    "control_planeCloud": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "control_planeCreateAccountResponse": {
+      "type": "object",
+      "properties": {
+        "accountId": {
+          "type": "string"
+        }
+      }
+    },
+    "control_planeCreateOrganizationRequest": {
+      "type": "object",
+      "properties": {
+        "organizationName": {
+          "type": "string"
+        },
+        "accountName": {
+          "type": "string"
+        },
+        "cloudId": {
+          "type": "string"
+        },
+        "regionId": {
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "surname": {
+          "type": "string"
+        },
+        "givenName": {
+          "type": "string"
+        }
+      }
+    },
+    "control_planeCreateOrganizationResponse": {
+      "type": "object",
+      "properties": {
+        "organizationId": {
+          "type": "string"
+        }
+      }
+    },
+    "control_planeCreateUserResponse": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        }
+      }
+    },
+    "control_planeCreateWarehouseResponse": {
+      "type": "object",
+      "properties": {
+        "warehouseId": {
+          "type": "string"
+        }
+      }
+    },
+    "control_planeDropAccountResponse": {
+      "type": "object"
+    },
+    "control_planeDropUserResponse": {
+      "type": "object"
+    },
+    "control_planeDropWarehouseResponse": {
+      "type": "object"
+    },
+    "control_planeGetAccountResponse": {
+      "type": "object",
+      "properties": {
+        "account": {
+          "$ref": "#/definitions/control_planeAccount"
+        }
+      }
+    },
+    "control_planeGetUserResponse": {
+      "type": "object",
+      "properties": {
+        "user": {
+          "$ref": "#/definitions/control_planeUser"
+        }
+      }
+    },
+    "control_planeGetWarehouseResponse": {
+      "type": "object",
+      "properties": {
+        "warehouse": {
+          "$ref": "#/definitions/control_planeWarehouse"
+        }
+      }
+    },
+    "control_planeGrantUserRoleResponse": {
+      "type": "object"
+    },
+    "control_planeInitializeAccountRequest": {
+      "type": "object",
+      "properties": {
+        "accountId": {
+          "type": "string"
+        },
+        "endpoint": {
+          "type": "string"
+        },
+        "internalEndpoint": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/control_planeAccountStatus"
+        }
+      }
+    },
+    "control_planeInitializeAccountResponse": {
+      "type": "object"
+    },
+    "control_planeListAccountsResponse": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "content": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/control_planeAccount"
+          }
+        }
+      }
+    },
+    "control_planeListCloudsResponse": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "content": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/control_planeCloud"
+          }
+        }
+      }
+    },
+    "control_planeListRegionsResponse": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "content": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/control_planeRegion"
+          }
+        }
+      }
+    },
+    "control_planeListRolesResponse": {
+      "type": "object",
+      "properties": {
+        "roles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "control_planeListUsersResponse": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "content": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/control_planeUser"
+          }
+        }
+      }
+    },
+    "control_planeListWarehouseSpecsResponse": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/control_planeWarehouseSpec"
+          }
+        }
+      }
+    },
+    "control_planeListWarehousesResponse": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "content": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/control_planeWarehouse"
+          }
+        }
+      }
+    },
+    "control_planeLoginRequest": {
+      "type": "object",
+      "properties": {
+        "organizationName": {
+          "type": "string"
+        },
+        "accountName": {
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "roles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "control_planeLoginResponse": {
+      "type": "object",
+      "properties": {
+        "hashdataCloudToken": {
+          "type": "string"
+        }
+      }
+    },
+    "control_planeRefreshTokenResponse": {
+      "type": "object",
+      "properties": {
+        "newToken": {
+          "type": "string"
+        }
+      }
+    },
+    "control_planeRegion": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "cloudId": {
+          "type": "string"
+        }
+      }
+    },
+    "control_planeRevokeUserRoleResponse": {
+      "type": "object"
+    },
+    "control_planeUpdateAccountStatusRequest": {
+      "type": "object",
+      "properties": {
+        "accountId": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/control_planeAccountStatus"
+        }
+      }
+    },
+    "control_planeUpdateAccountStatusResponse": {
+      "type": "object"
+    },
+    "control_planeUpdateWarehouseStatusRequest": {
+      "type": "object",
+      "properties": {
+        "warehouseId": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/control_planeWarehouseStatus"
+        }
+      }
+    },
+    "control_planeUpdateWarehouseStatusResponse": {
+      "type": "object"
+    },
+    "control_planeUser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "surname": {
+          "type": "string"
+        },
+        "givenName": {
+          "type": "string"
+        },
+        "accountId": {
+          "type": "string"
+        },
+        "roles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "createdAt": {
+          "type": "string"
+        }
+      }
+    },
+    "control_planeWarehouse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "accountId": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/control_planeWarehouseStatus"
+        },
+        "size": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        }
+      }
+    },
+    "control_planeWarehouseSpec": {
+      "type": "object",
+      "properties": {
+        "size": {
+          "type": "string"
+        },
+        "sequence": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "control_planeWarehouseStatus": {
+      "type": "string",
+      "enum": [
+        "WarehouseStatusCreating",
+        "WarehouseStatusNormal",
+        "WarehouseStatusScaling"
+      ],
+      "default": "WarehouseStatusCreating"
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}
