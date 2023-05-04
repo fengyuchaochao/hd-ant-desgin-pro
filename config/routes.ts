@@ -32,7 +32,7 @@ export default [
     path: '/warehouse',
     name: 'warehouse',
     component: './Warehouse',
-    access: 'isAccountAdmin'
+    // access: 'isOrganizationAdmin'
   },
   {
     path: '/',

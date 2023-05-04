@@ -1,8 +1,7 @@
+import { PageContainer } from '@ant-design/pro-components';
 
 const Warehouse: React.FC = () => {
-  return <div>
-    <h1>集群列表</h1>
-  </div>
-}
+  return <PageContainer></PageContainer>;
+};
 
 export default Warehouse;

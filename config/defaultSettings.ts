@@ -15,7 +15,7 @@ const Settings: ProLayoutProps & {
   fixedHeader: false,
   fixSiderbar: true,
   colorWeak: true,
-  title: '酷克数据',
+  title: 'HashData',
   pwa: true,
   logo: '/logo.png',
   iconfontUrl: '',

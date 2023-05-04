@@ -1,13 +1,10 @@
-import { useState } from 'react';
-import { Alert, message, Tabs } from 'antd';
+import { message } from 'antd';
 import { LoginFormPage, ProFormText } from '@ant-design/pro-components';
-import { FormattedMessage, history, SelectLang, useIntl, useModel, Helmet } from '@umijs/max';
-import jwtDecode from 'jwt-decode';
+import { history, useIntl, useModel } from '@umijs/max';
 import { flushSync } from 'react-dom';
 
 import { ControlPlaneServiceLogin } from '@/services/controlPlane/ControlPlaneService';
 import styles from './index.less';
-import { currentUser } from '@/services/ant-design-pro/api';
 
 const HDLogin: React.FC = () => {
   const intl = useIntl();
@@ -17,6 +14,7 @@ const HDLogin: React.FC = () => {
     try {
       const res = await ControlPlaneServiceLogin(values);
       const { hashdataCloudToken: tokenStr } = res;
+      console.log('tokenStr', tokenStr);
       if (tokenStr) {
         localStorage.setItem('token', tokenStr);
         // 获取用户信息
@@ -24,9 +22,11 @@ const HDLogin: React.FC = () => {
 
         // 登录成功以后，需要更新全局数据
         flushSync(() => {
-          setInitialState({
-            ...initialState,
-            currentUser: userInfo,
+          setInitialState((newState) => {
+            return {
+              ...newState,
+              currentUser: userInfo,
+            };
           });
         });
 

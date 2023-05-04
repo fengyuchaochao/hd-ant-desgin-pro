@@ -76,7 +76,7 @@ export default defineConfig({
    * @name layout 插件
    * @doc https://umijs.org/docs/max/layout-menu
    */
-  title: '酷克数据',
+  title: 'HashData',
   layout: {
     locale: true,
     ...defaultSettings,
@@ -127,6 +127,7 @@ export default defineConfig({
     // 解决首次加载时白屏的问题
     { src: '/scripts/loading.js', async: true },
   ],
+
   //================ pro 插件配置 =================
   presets: ['umi-presets-pro'],
   /**
@@ -148,8 +149,10 @@ export default defineConfig({
       mock: false,
     },
   ],
+
   mfsu: {
     strategy: 'normal',
   },
   requestRecord: {},
+  tailwindcss: {},
 });
